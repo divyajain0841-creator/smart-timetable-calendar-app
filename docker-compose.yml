@@ -1,0 +1,11 @@
+services:
+  timetable:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      GOOGLE_REDIRECT_URI: ${GOOGLE_REDIRECT_URI:-http://localhost:8000/api/google/callback}
+    volumes:
+      - ./uploads:/app/uploads
